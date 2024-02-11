@@ -1,9 +1,12 @@
+
+
 const cards = document.querySelectorAll(".memory-card");
 
 let hasFlippedCard = false;
 let lockBoard = false;
 let firstCard, secondCard;
 
+//function flips the card
 function flipCard() {
   if (lockBoard) return;
   if (this === firstCard) return;
@@ -21,6 +24,7 @@ function flipCard() {
   checkForMatch();
 }
 
+//function that checks the match for a fliped card
 function checkForMatch() {
   let isMatch = firstCard.dataset.framework === secondCard.dataset.framework;
 
