@@ -1,5 +1,3 @@
-
-
 const cards = document.querySelectorAll(".memory-card");
 
 let hasFlippedCard = false;
@@ -46,7 +44,7 @@ function unflipCards() {
     secondCard.classList.remove("flip");
 
     resetBoard();
-  }, 1500);
+  }, 500);
 }
 
 function resetBoard() {
@@ -62,3 +60,14 @@ function resetBoard() {
 })();
 
 cards.forEach((card) => card.addEventListener("click", flipCard));
+
+// if all cards are matched, the game is over so we have to give a message
+function gameOver() {
+  let matched = document.querySelectorAll(".memory-card.flip");
+  if (matched.length === 12) {
+    alert("Congratulations! You have won the game");
+  }
+}
+// we have to call the gameOver function after every flip
+cards.forEach((card) => card.addEventListener("click", gameOver));
+
