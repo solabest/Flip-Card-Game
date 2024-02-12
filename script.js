@@ -28,7 +28,7 @@ function checkForMatch() {
 
   isMatch ? disableCards() : unflipCards();
 }
-
+//function that remove eventlistner if the two card match
 function disableCards() {
   firstCard.removeEventListener("click", flipCard);
   secondCard.removeEventListener("click", flipCard);
