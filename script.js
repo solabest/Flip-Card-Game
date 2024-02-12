@@ -64,10 +64,18 @@ cards.forEach((card) => card.addEventListener("click", flipCard));
 // if all cards are matched, the game is over so we have to give a message
 function gameOver() {
   let matched = document.querySelectorAll(".memory-card.flip");
-  if (matched.length === 12) {
-    alert("Congratulations! You have won the game");
-  }
+  setTimeout(() => {
+    if (matched.length === 12) {
+      const val = confirm(
+        "Congratulations! You have won the game.\ndo you want to play again?"
+      );
+      if (val) {
+        location.reload();
+      } else {
+        alert("Thanks for playing");
+      }
+    }
+  }, 1500);
 }
 // we have to call the gameOver function after every flip
 cards.forEach((card) => card.addEventListener("click", gameOver));
-
